@@ -1,12 +1,14 @@
 from django.contrib import admin
+#from django.http import HttpResponse
+#from django.shortcuts import render
 from django.urls import reverse
 from django.utils.html import format_html
 
-from base_admin import BaseOwnerAdmin
+from blog_sys.base_admin import BaseOwnerAdmin
 from blog.adminforms import PostAdminForm
-from custom_site import custom_site
+from blog_sys.custom_site import custom_site
 from .models import Post,Category,Tag
-from django.contrib.auth import get_permission_codename
+#from django.contrib.auth import get_permission_codename
 # Register your models here.
 
 
@@ -88,6 +90,7 @@ class PostAdmin(BaseOwnerAdmin):
             'all':("https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css",),
         }
         js =('https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.bubdle.js',)
+
 
 
 """  def has_add_permission(self, request):

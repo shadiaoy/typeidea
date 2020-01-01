@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from base_admin import BaseOwnerAdmin
-from custom_site import custom_site
+from blog_sys.base_admin import BaseOwnerAdmin
+from blog_sys.custom_site import custom_site
 from .models import Link,SideBar
 # Register your models here.
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from custom_site import custom_site
+from blog_sys.custom_site import custom_site
 from .models import Comment
 # Register your models here.
 
