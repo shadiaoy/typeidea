@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
 
+from django.contrib.admin.models import LogEntry
 from blog_sys.base_admin import BaseOwnerAdmin
 from blog.adminforms import PostAdminForm
 from blog_sys.custom_site import custom_site
@@ -91,7 +92,9 @@ class PostAdmin(BaseOwnerAdmin):
         }
         js =('https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.bubdle.js',)
 
-
+@admin.register(LogEntry,site=custom_site)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display = ['object_repr','object_id','action_flag','user','change_message']
 
 """  def has_add_permission(self, request):
         opts =self.opts
