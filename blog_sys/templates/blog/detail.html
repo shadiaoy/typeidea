@@ -1,4 +1,30 @@
-{% if post %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>{% block title %}{% endblock %}typeidea 博客系统</title>
+
+</head>
+
+<body>
+    <div class="container head">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">首页</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" ><a class="nav-link" href="#">Python --- Django实战 --- Tornado</a> </li>
+                </ul>
+                <form class="'form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">搜索</button>
+                </form>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-4">Typeidea</h1>
+            <p class="lead">基于Django的多人博客系统</p>
+        </div>
+    </div>
     <h1>{{ post.title }}</h1>
     <div>
         <span>分类:{{ post.category.name }}</span>
@@ -8,5 +34,33 @@
     <p>
         {{ post.content }}
     </p>
-{% endif %}
 
+<hr/>
+<div class="comment">
+    <form class="form-group" action="/comment/" method="POST">
+        {% csrf_token %}
+        <input name="target" type="hidden" value="{{ request.path }}"/>{{ comment_form }}
+        <input type="submit" value="写好了！"/>
+    </form>
+
+    <!--评论列表-->
+    <ul class="list-group">
+        {% for comment in comment_list %}
+        <li class="list-group-item">
+            <div class="nickname">
+                <a href="{{ comment.website }}">{{ comment.nickname }}</a>
+                    <span>{{ comment.created_time }}</span>
+            </div>
+            <div class="comment-content">
+                {{ comment.content }}
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+</body>
+</html>
