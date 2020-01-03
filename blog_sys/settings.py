@@ -45,6 +45,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'blog.middleware.user_id.UserIDMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +63,7 @@ THEME='default'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'themes',THEME, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates','themes',THEME),]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

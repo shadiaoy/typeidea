@@ -16,12 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from blog.sitemap import PostSitemap
 from blog_sys.custom_site import custom_site
 from comment.views import CommentView
 from config.views import links, LinkListView
 from blog.views import post_list, PostDetailView, SearchView, AuthorView
 
 from blog.views import (IndexView,CategoryView,TagView,PostDetailView,)
+from rss import LatestPostFeed
 
 urlpatterns = [
 
@@ -37,4 +39,7 @@ urlpatterns = [
     url(r'^author/(?P<owner_id>\d+)/$',AuthorView.as_view(),name='author'),
     url(r'^link/$',LinkListView.as_view(),name='links'),
     url(r'^comment/$',CommentView.as_view(),name='comment'),
+
+    url(r'^rss|feed',LatestPostFeed(),name='rss'),
+#    url(r'^sitemap\.xml$',sitemap_views.sitemap,{'sitemap':{'posts':PostSitemap}}),
 ]
