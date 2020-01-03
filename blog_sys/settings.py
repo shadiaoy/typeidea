@@ -63,7 +63,7 @@ THEME='default'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates','themes',THEME),]
+        'DIRS': [os.path.join(BASE_DIR, 'templates','themes',THEME,'comment'),]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

@@ -1,4 +1,4 @@
-from django import template
+'''from django import template
 
 from comment.forms import CommentForm
 from comment.models import Comment
@@ -11,4 +11,4 @@ def comment_block(target):
         'target':target,
         'comment_form':CommentForm(),
         'comment_list':Comment.get_by_target(target),
-    }
+    }'''
