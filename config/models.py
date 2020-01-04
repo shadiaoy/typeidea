@@ -79,3 +79,7 @@ class SideBar(models.Model):
             context={'comments':Comment.objects.filter(status=Comment.STATUS_NORMAL)}
             result=render_to_string('config/blocks/sidebar_posts.html',context)
         return result
+
+
+    def __str__(self):
+        return self.title

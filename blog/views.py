@@ -78,7 +78,7 @@ class TagView(IndexView):
     def get_queryset(self):
         queryset = super().get_queryset()
         tag_id = self.kwargs.get('tag_id')
-        return queryset.filter(tag_id=tag_id)
+        return queryset.filter(tag__id=tag_id)
 
 
 class PostListView(ListView):
@@ -137,6 +137,9 @@ class PostDetailView(CommonViewMixin,DetailView):
 
 
 
+
+
+
 class SearchView(IndexView):
     def get_context_data(self):
         context =super().get_context_data()
@@ -150,7 +153,7 @@ class SearchView(IndexView):
         keyword=self.request.GET.get('keyword')
         if not keyword:
             return queryset
-        return queryset.filter(Q(title_icontains=keyword)|Q(desc_icontains=keyword))
+        return queryset.filter(Q(title__icontains=keyword)|Q(desc__icontains=keyword))
 
 class AuthorView(IndexView):
     def get_queryset(self):
@@ -166,3 +169,7 @@ class AuthorView(IndexView):
     context={'post':post,'sidebars':SideBar.get_all(),}
     context.update(Category.get_navs())
     return render(request,'blog/detail.html',context=context)"""
+
+
+
+

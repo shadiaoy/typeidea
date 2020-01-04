@@ -1,9 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views.generic import TemplateView
 
 from comment.forms import CommentForm
+
 
 
 class CommentView(TemplateView):
@@ -28,3 +30,5 @@ class CommentView(TemplateView):
             'target':target,
         }
         return self.render_to_response(context)
+
+
