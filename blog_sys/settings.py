@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+
     'blog_sys',
     'blog',
     'config',
@@ -60,12 +62,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog_sys.urls'
 
-THEME='default'
+THEME='bootstrap'
+
+STATIC_URL='/static/'
+STATTC_ROOT='/tem/static'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates','themes',THEME,'comment'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates','themes',THEME,'static'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

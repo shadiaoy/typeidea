@@ -61,7 +61,7 @@ class PostAdmin(BaseOwnerAdmin):
     ]
     list_display_links = []
 
-    list_filter = ['category',]
+    list_filter = [CategoryOwnerFilter,]
     search_fields = ['title', 'category__name']
 
     actions_on_top = True

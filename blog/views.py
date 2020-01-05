@@ -103,13 +103,7 @@ class PostDetailView(CommonViewMixin,DetailView):
         })
         return context
 
-    def get(self,request,*args,**kwargs):
-        response=super().get(request,*args,**kwargs)
-        Post.objects.filter(pk=self.object.id).update(pv=F('pv')+1,uv=F('uv')+1)
 
-        from django.db import connection
-        print(connection.queries)
-        return response
 
     def get(self,request,*args,**kwargs):
         response=super().get(request,*args,**kwargs)

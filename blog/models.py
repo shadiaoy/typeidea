@@ -118,7 +118,7 @@ class Post(models.Model):
 
     @cached_property
     def tags(self):
-        return ','.jion(self.tag.values_list('name',flat=True))
+        return ','.join(self.tag.values_list('name',flat=True))
 
     def __str__(self):
         return self.title

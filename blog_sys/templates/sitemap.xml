@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns= "http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 {% spaceless %}
 {% for url in urlset %}
@@ -10,8 +10,8 @@
     {% if url.changefreq %}<changefreq>{{ url.changefreq }}</changefreq>{% endif %}
     {% if url.priority %}<priority>{{ url.priority }}</priority>{% endif %}
     <news:news>
-        {% if url.created_time %}<new:publication_date>{{ url.item.created_time|date:"Y-m-d" }}</new:publication_date>{% endif %}
-        {% if url.item.tags %}<new:keywords>{{ url.item.tags }}</new:keywords>{% endif %}
+        {% if url.created_time %}<news:publication_date>{{ url.item.created_time|date:"Y-m-d" }}</news:publication_date>{% endif %}
+        {% if url.item.tags %}<news:keywords>{{ url.item.tags }}</news:keywords>{% endif %}
     </news:news>
     </url>
 {% endfor %}
