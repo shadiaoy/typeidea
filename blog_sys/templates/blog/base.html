@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>{% block title %}首页{% endblock %}- typeidea 博客系统</title>
-    <meta name="'viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css">
     <style>
     .post {
         margin-bottom: 5px;
     }
     </style>
+
+    {% block extra_head %}
+    {% endblock %}
+
+
 </head>
 <body>
 
@@ -29,6 +35,15 @@
                 </form>
             </div>
         </nav>
+
+        <div class="rss">
+            <a href="{% url 'rss' %}">
+                <span class="ion-social-rss-outline"></span>RSS 订阅
+            </a>
+        </div>
+
+
+
         <div class="jumbotron">
             <h1 class="display-4">Typeidea</h1>
             <p class="lead">基于Django的多人博客系统</p>

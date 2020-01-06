@@ -48,7 +48,7 @@ urlpatterns = [
     url(r'^links/$',LinkListView.as_view(),name='links'),
     url(r'^comment/$',CommentView.as_view(),name='comment'),
 
-    url(r'^rss|feed/',LatestPostFeed(),name='rss'),
+    url(r'^rss/',LatestPostFeed(),name='rss'),
     url(r'^sitemap\.xml$',sitemap_views.sitemap,{'sitemaps':{'posts':PostSitemap}}),
 
 ]

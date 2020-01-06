@@ -5,20 +5,20 @@ from django.utils.feedgenerator import Rss201rev2Feed
 from  blog.models import Post
 
 
-class ExtendedRSSFeed(Rss201rev2Feed):
+'''class ExtendedRSSFeed(Rss201rev2Feed):
     def add_item_elements(self, handler, item):
         super(ExtendedRSSFeed, self).add_item_elements(handler, item)
-        handler.addQuickElement('content:html', item['content_html'])
+        handler.addQuickElement('content:html', item['content_html'])'''
 
 
 class LatestPostFeed(Feed):
-    feed_type = ExtendedRSSFeed
+    #feed_type = ExtendedRSSFeed
     title = "Typeidea Blog System"
-    link = "/rss/"
+    link = "/"
     description = "typeida is a blog system power by django"
 
     def items(self):
-        return Post.objects.filter(status=Post.STATUS_NORMAL)[:5]
+        return Post.objects.all()
 
     def item_title(self, item):
         return item.title
